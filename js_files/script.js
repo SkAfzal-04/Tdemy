@@ -7,7 +7,6 @@ let pass=["123"]
 function log(){
     let name=document.getElementById("uname").value;
     let p=document.getElementById("pass").value;
-
     for (let i=0;i<uname.length;i++){
         console.log(login);
     if (uname[i]==name && pass[i]==p){
@@ -17,11 +16,29 @@ function log(){
         window.location.href="my-courses.html";
     }
     }
-    // else{
-    //     alert("Invalid username/password");
-    // }
+    if (!login){
+        alert("Username Not Registered OR Invalid username/password");
+    }
     return login;
     
+}
+
+// Java Script for Registration page 
+
+function register(){
+    let name=document.getElementById("runame").value;
+    let np=document.getElementById("enpass").value;
+    let rp=document.getElementById("rrpass").value;
+    if (np!=rp){
+        alert("Reenterd pasword dosen't match with the new password!");
+    }
+    else{
+        uname.push(name);
+        pass.push(rp);
+        alert("Registered Successful!");
+        window.location.href="login.html";
+        console.log(uname,pass);
+    }
 }
 
 //Java Script of Navigation Bar
