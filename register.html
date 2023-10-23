@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tdemy-Registration Page</title>
+    <title>Tdemy-Login Registration Page</title>
     <link rel="stylesheet" href="css_files/wishlist.css">
     <link rel="stylesheet" href="css_files/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -36,81 +36,85 @@
             <a href="#"><i class="fa-regular fa-user" style="color: #000000;"></i></a>
             <a href="wishlist.html"><i class="fa-regular fa-heart" style="color: #000000;"></i></a>
             <a href="#"><i class="fa-solid fa-cart-shopping" style="color: #000000;"></i></a>
-            <a><i class="fa-solid fa-bars ham" style="color: #121212;"></i></a>
+            <a ><i class="fa-solid fa-bars ham" style="color: #121212;"></i></a>
         </div>
     </header>
 
 
     <div class="loginbody">
-        <section style="width: 60%; background-color: rgb(204, 241, 229); margin-top: 20px;">
-            <h1 class="enroll">GET REGISTERED
-            </h1>
+        <section class="loginsection">
+            <h1 class="enroll">GET REGISTERED HERE</h1>
             <br>
             <form action="">
-                <!-- <label  for="name"><p class="loginbody">Username</p> -->
-                <span class="uname pro"><i class="fa fa-user" aria-hidden="true"></i><input class="uinp" type="text"
-                        id="uname" placeholder="Enter your username"> </span>
+                <label  for="name">
+                    <!-- <p class="loginbody">Username</p> -->
+                    <span class="uname"><i class="fa fa-user" aria-hidden="true"></i><input class="uinp" type="text" id="runame"  placeholder="Enter your username"> </span>
                 </label> <br><br>
-                <!-- <label for="password"><p class="loginbody">Password</p> -->
-                <span class="uname pro"><i class="fa fa-key" aria-hidden="true"></i><input class="uinp" type="password"
-                        id="pass" placeholder="Enter correct password"></span>
+                <label for="password">
+                    <!-- <p class="loginbody">Password</p> -->
+                    <span class="uname"><i class="fa fa-key" aria-hidden="true"></i><input class="uinp" type="password" id="enpass" placeholder="Enter New password"></span>
                 </label>
-                </label> <br><br>
-                <span class="uname pro"><i class="fa fa-key" aria-hidden="true"></i><input class="uinp" type="password"
-                        id="rrpass" placeholder="Confirm Password"></span>
+                <br><br>
+                <label for="cpassword">
+                    <!-- <p class="loginbody">Password</p> -->
+                    <span class="uname"><i class="fa fa-key" aria-hidden="true"></i><input class="uinp" type="password" id="rrpass" placeholder="Confirm password"></span>
                 </label>
-
-
-
+                <a href="#" style="text-decoration: none;"><p class="fpass">forget password?</p></a>
+                
                 <div class="main-btn">
-                    <a href="login.html"class="btn">Sign Up</a>
+                    <a onclick="register()" class="btn">Sign In</a>
                 </div>
-
+               <p class="sign">or </p>
+                
+              <div class="flog"> 
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fab fa-google glog"></i>
+            </div>
             </form>
             <br>
         </section>
-    </div>
-    <!-- satrt contact section -->/
-
-    <section class="contact" id="contact">
-        <div class="main-contact">
-            <div class="contact-content">
-                <img src="images/logo.png" alt="logo">
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">LinkedIn</a></li>
-            </div>
-            <div class="contact-content">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#categories">Categories</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </div>
-            <div class="contact-content">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Instructor</a></li>
-                <li><a href="#">Dashboard</a></li>
-            </div>
-
-            <div class="contact-content">
-                <li><a href="#">India,West Bengal,<br>Bardhaman,713401</a></li>
-                <li><a href="#">tdemy2k23@gmail.com</a></li>
-                <li><a href="#">08569742865</a></li>
-            </div>
-
         </div>
+        <!-- satrt contact section -->
 
-    </section>
-    <div class="last-text">
-        <p>@ 2023 Tdemy,All rights are reserved.</p>
-    </div>
-
-    <script src="js_files/script.js"></script>
-
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-</body>
-
-</html>
+        <section class="contact" id ="contact">
+            <div class="main-contact">
+                <div class="contact-content">
+                    <img src="images/logo.png" alt="logo">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </div>
+                <div class="contact-content"> 
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </div>
+                <div class="contact-content">
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Instructor</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                </div>
+    
+                <div class="contact-content">
+                    <li><a href="#">India,West Bengal,<br>Bardhaman,713401</a></li>
+                    <li><a href="#">tdemy2k23@gmail.com</a></li>
+                    <li><a href="#">08569742865</a></li>
+                </div>
+    
+            </div>
+    
+        </section>
+        <div class="last-text">
+            <p>@ 2023 Tdemy,All rights are reserved.</p>
+        </div>
+    
+        <script src="js_files/script.js"></script>
+    
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    </body>
+    
+    </html>
