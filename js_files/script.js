@@ -1,45 +1,129 @@
 
-//Java Script of Login Page
+var login = localStorage.getItem('login');
+if (login=="true"){
+    var profilePhoto = document.getElementById('profile-photo');
+    profilePhoto.src = 'images/afzal.jpg';
+    // Get the element with the id "logout"
+    var logoutElement = document.getElementById("logout");
+    // Create an "i" element
+    var iElement = document.createElement("i");
+    // Add a class to the "i" element
+    iElement.className = "fas fa-sign-out";
+    // Add an inline style to the "i" element
+    iElement.style.cssText = "color: #0d0d0d;";
+    // Add an onclick attribute to the "i" element
+    iElement.setAttribute("onclick", "logout()");
+    // Append the "i" element to the "logout" element
+    logoutElement.appendChild(iElement);
 
-let login=false;
-let uname=["afzal"];
-let pass=["123"]
-function log(){
-    let name=document.getElementById("uname").value;
-    let p=document.getElementById("pass").value;
-    for (let i=0;i<uname.length;i++){
-        console.log(login);
-    if (uname[i]==name && pass[i]==p){
-        login=true;
-        console.log(login);
-        alert("Login Successful");
-        window.location.href="my-courses.html";
+
+}
+else if(login=="false"){
+    var profilePhoto = document.getElementById('profile-photo');
+    profilePhoto.src = 'images/profile.png';
+}
+function logout(){
+    var login = "false";
+    localStorage.setItem('login', login);
+    window.location.href='index.html';
+}
+
+//Java Script of Login Page
+function log() {
+    var usernameInput = document.getElementById("uname").value;
+    var passwordInput = document.getElementById("pass").value;
+
+    // Retrieve the user data from localStorage
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Check if there are registered users
+    if (users.length === 0) {
+        alert('No registered users found. Please register first.');
+    } else {
+        // Loop through the stored users and check for a matching username and password
+        var authenticatedUser = users.find(function(user) {
+            return user.username === usernameInput && user.password === passwordInput;
+        });
+
+        if (authenticatedUser) {
+            var login = "true";
+            localStorage.setItem('login', login);
+            alert('Login successful');
+            window.location.href="my-courses.html"
+            // You can add code to redirect to a different page or perform other actions here
+        } else {
+            alert('Incorrect username or password. Please try again.');
+        }
     }
-    }
-    if (!login){
-        alert("Username Not Registered OR Invalid username/password");
-    }
-    return login;
     
 }
 
-// Java Script for Registration page 
+//Java Script for forget password page
+ function retrievePassword() {
+    var emailInput = document.getElementById("email").value;
+    var users = JSON.parse(localStorage.getItem('users')) || [];
 
-function register(){
-    let name=document.getElementById("runame").value;
-    let np=document.getElementById("enpass").value;
-    let rp=document.getElementById("rrpass").value;
-    if (np!=rp){
-        alert("Reenterd pasword dosen't match with the new password!");
+    
+    var user = users.find(function(user) {
+        return user.email === emailInput;
+    });
+
+    if (users.length === 0) {
+        alert('No registered users found. Please register first.');
     }
-    else{
-        uname.push(name);
-        pass.push(rp);
-        alert("Registered Successful!");
-        window.location.href="login.html";
-        console.log(uname,pass);
+    if (user) {
+            // Password found, display it
+            document.getElementById("password-display").value =+ user.password;
+        }
+    else {
+            // Email not found, display an error message
+            document.getElementById("password-display").value = "Email not found.";
+        }
     }
+
+// Java Script for Registration page 
+ // Function to store values in localStorage
+function register() {
+    // Get values from input fields
+    var email = document.getElementById("remail").value;
+    var username = document.getElementById("runame").value;
+    var password = document.getElementById("enpass").value;
+    var confirmPassword = document.getElementById("rrpass").value;
+
+    // Check if email, username, and password are not empty
+    if (email && username && password) {
+        if (password === confirmPassword) {
+            // Retrieve existing user data from localStorage or initialize an empty array
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Create a new user object
+            var newUser = {
+                email: email,
+                username: username,
+                password: password
+            };
+
+            // Push the new user object to the array
+            users.push(newUser);
+
+            // Store the updated array in localStorage
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Optionally, you can display a success message or redirect the user
+            alert('Registration successful');
+            window.location.href="login.html";
+        } else {
+            // Password and confirm password do not match
+            alert('Password and confirm password do not match');
+        }
+    } else {
+        // Handle case when fields are empty
+        alert('Please fill in all fields');
+    }
+
+
 }
+
 
 //Java Script of Navigation Bar
 
@@ -64,13 +148,11 @@ window.onscroll=()=>{
 
 //Java Script of Home Page
 
-if (login){
-
-}
 
 function buy(){
-    if (login){
-        window.location.href='wishlist.html';
+    var login = localStorage.getItem('login');
+    if (login=="true"){
+        window.location.href='cart.html';
     }
     else{
         alert("Login First");
@@ -143,14 +225,14 @@ function ShowMore(){
             reviewText.textContent = '{10k Review}';
         }
     
-        // for (let i = 0; i < 5; i++) {
-        //     const starLink = document.createElement('a');
-        //     const starIcon = document.createElement('i');
-        //     starIcon.classList.add('fa-solid', 'fa-star');
-        //     starIcon.style.color = '#f0cf28';
-        //     starLink.appendChild(starIcon);
-        //     starIcons.appendChild(starLink);
-        // }
+        for (let i = 0; i < 5; i++) {
+            const starLink = document.createElement('a');
+            const starIcon = document.createElement('i');
+            starIcon.classList.add('fa-solid', 'fa-star');
+            starIcon.style.color = '#f0cf28';
+            starLink.appendChild(starIcon);
+            starIcons.appendChild(starLink);
+        }
     
         // Create the review count
 
@@ -248,4 +330,20 @@ function ShowMore(){
 //     }
 
 
-    
+//Java Script of Wishlist page
+
+document.getElementById("AddToCart").addEventListener("click", function() {
+    // Clone the row element by its ID
+    document.getElementById("AddToCart").textContent = "Buy Now";
+    var wishlistItem = document.getElementById('mysql').cloneNode(true);
+
+    // Store the cloned item in local storage
+    localStorage.setItem('cartItem', wishlistItem.outerHTML);
+
+    // Redirect to cart.html
+    window.location.href = 'cart.html';
+});
+
+
+
+
