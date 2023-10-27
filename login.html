@@ -35,8 +35,8 @@
         <div class="header-icon">
             <a href="#"><img src="images/profile.png" id="profile-photo" style="border-radius: 15px;" height="25px" width="25px" alt="profile"></a>
             <span id="logout"></span>
-            <a href="wishlist.html"><i class="fa-regular fa-heart" style="color: #000000;"></i></a>
-            <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: #000000;"></i></a>
+            <a onclick="buy()"><i class="fa-regular fa-heart" style="color: #000000;"></i></a>
+            <a onclick="buy()"><i class="fa-solid fa-cart-shopping" style="color: #000000;"></i></a>
             <a ><i class="fa-solid fa-bars ham" style="color: #121212;"></i></a>
         </div>
     </header>
@@ -56,21 +56,16 @@
                     <!-- <p class="loginbody">Password</p> -->
                     <span class="uname"><i class="fa fa-key" aria-hidden="true"></i><input class="uinp" type="password" id="pass" placeholder="Enter correct password"></span>
                 </label>
-                <a href="forget-password.html" style="text-decoration: none;"><p class="fpass">forget password?</p></a>
-                
-                <div class="main-btn">
-                    <a onclick="log()" class="btn">Sign In</a>
+                <div style="display: flex; justify-content: center;">
+                <span class="foget-sign">
+                <a href="forget-password.html" style="text-decoration: none;"><p class="fpass">forget password? </p></a>
+                <a href="register.html" style="text-decoration: none;"><p class="fpass">Sign Up </p></a>
+                </span>
                 </div>
-               <p class="sign">or </p>
-                
                 <div class="main-btn">
-                    <a href="register.html" class="btn">Sign Up</a>
+                    <a onclick="log()" class="btn">Login</a>
                 </div>
-                
-              <div class="flog"> 
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fab fa-google glog"></i>
-            </div>
+        
             </form>
             <br>
         </section>
