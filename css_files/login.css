@@ -97,11 +97,12 @@ header{
     font-weight: 500;
     background: var(--main-color);
     color: var(--bg-color);
-    border-radius: 30px;
+    border-radius: 15px;
     transition: all .40s ease;
 }
 .btn:hover{
     transform: scale(0.9) translateY(-5px);
+    cursor: pointer;
 }
 
 
@@ -204,7 +205,14 @@ body{
 }
 .fpass{
     transition: all .4s ease;
-    font-size: 20px;
+    font-size: 15px;
+    
+}
+
+.foget-sign{
+    display: flex; 
+    justify-content: space-between; 
+    width: 34%;
 }
 
 p{
@@ -214,7 +222,7 @@ p{
 }
 .fpass:hover{
     color: darkblue;
-    transform: scale(0.9) translateY(-5px);
+    transform: scale(1.2) translateY(3px);
    
 }
 input:hover{
@@ -313,6 +321,9 @@ input:hover{
         height: auto;
         width: 100%;
     }
+    .foget-sign{
+        width: 28%;
+    }
     .about{
         grid-template-columns: 1fr;
         gap: 1rem;;
@@ -327,4 +338,14 @@ input:hover{
     .home{
         height: 120vh;
     }
+    .foget-sign{
+        width: 45%;
+    }
 }
+@media (max-width:450px){
+
+    .foget-sign{
+        width: 68%;
+    }
+}
+
