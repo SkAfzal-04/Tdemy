@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,10 +34,10 @@
         </ul>
 
         <div class="header-icon">
-            <a href="#"> <img src="images/profile.png" id="profile-photo" style="border-radius: 15px;" height="25px" width="25px" alt="profile"></a>
+            <a href="login.html"> <img src="images/profile.png" id="profile-photo" style="border-radius: 15px;" height="25px" width="25px" alt="profile"></a>
             <span id="logout"></span>
-            <a href="wishlist.html"><i class="fa-regular fa-heart" style="color: #000000;"></i></a>
-            <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: #000000;"></i></a>
+            <a onclick="buy()"><i class="fa-regular fa-heart" style="color: #000000;"></i></a>
+            <a onclick="buy()"><i class="fa-solid fa-cart-shopping" style="color: #000000;"></i></a>
             <a ><i class="fa-solid fa-bars ham" style="color: #121212;"></i></a>
         </div>
     </header>
@@ -65,10 +66,28 @@
                     <!-- <p class="loginbody">Password</p> -->
                     <span class="uname"><i class="fa fa-key" aria-hidden="true"></i><input class="uinp" type="password" id="rrpass" placeholder="Confirm password"></span>
                 </label>
-                <a href="#" style="text-decoration: none;"><p class="fpass">forget password?</p></a>
+
+                <br>
+                               
+                               <!-- Image preview container -->
+                <div id="image-preview-container" class="uname">
+                    <img src="" id="selected-image" style="max-width: 150px; border-radius: 20px; max-height: 150px; display: none;">
+                </div>
+                    <!-- Add input type file for image selection -->
+                <span class="uname">
+                    <div class="main-btn">
+                        <label for="profile-image" class="btn" id="image-label">Select a Profile Image</label>
+                    </div>
+                    <input type="file" id="profile-image" accept="image/*" style="display: none;">
+                    
+                    
+                </span>
+            
+                            
+                
                 
                 <div class="main-btn">
-                    <a onclick="register()" class="btn">Sign In</a>
+                    <a onclick="register()" class="btn">Sign Up</a>
                 </div>
                <p class="sign">or </p>
                 
@@ -117,7 +136,26 @@
         <div class="last-text">
             <p>@ 2023 Tdemy,All rights are reserved.</p>
         </div>
-    
+        
+        <script>
+             const profileImageInput = document.getElementById("profile-image");
+        const selectedImage = document.getElementById("selected-image");
+
+        profileImageInput.addEventListener("change", function() {
+            const file = profileImageInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    selectedImage.src = e.target.result;
+                    selectedImage.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            } else {
+                selectedImage.style.display = "none";
+            }
+        });
+        </script>
+
         <script src="js_files/script.js"></script>
     
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
