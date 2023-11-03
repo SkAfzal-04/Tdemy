@@ -21,6 +21,9 @@ body{
     background-color: var(--bg-color);
     color: var(--text-color);
 }
+a:hover{
+    cursor: pointer;
+}
 header{
     position: fixed;
     width: 100%;
@@ -216,8 +219,9 @@ header.sticky{
 }
 
 .box{
+    background-color: white;
     padding: 25px 60px;
-    border: 1px solid #e9ecef;
+    border: 2px solid #e9ecef;
     border-radius: 20px;
     box-shadow: -11.729px -11.729px 32px rgb(255 255 255 / 15%);
     transition: all .40s ease;
@@ -247,16 +251,17 @@ header.sticky{
 }
 .btn{
     display: inline-block;
-    padding: 16px;
+    padding: 12px 14px 12px 14px;
     font-size: var(--p-font);
     font-weight: 700;
     background: var(--main-color);
     color: var(--bg-color);
-    border-radius: 30px;
+    border-radius: 20px;
     transition: all .40s ease;
 }
 .btn:hover{
     transform: scale(0.9) translateY(-5px);
+    cursor: pointer;
 }
 
 .courses{
@@ -506,9 +511,17 @@ header.sticky{
         gap: 1rem;;
         
     }
+    .sec {
+        top: 40px;
+        padding: 80px 7%;
+    }
 }
 @media (max-width:600px){
     .home{
         height: 120vh;
+    }
+    .sec {
+        top: 40px;
+        padding: 80px 7%;
     }
 }
