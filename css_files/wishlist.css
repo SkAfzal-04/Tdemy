@@ -28,6 +28,9 @@ body{
     background-color: var(--bg-color);
     color: var(--text-color);
 }
+a:hover{
+    cursor: pointer;
+}
 header{
     position: fixed;
     width: 100%;
@@ -92,12 +95,12 @@ header{
 }
 .btn{
     display: inline-block;
-    padding: 16px;
+    padding: 12px 14px 12px 14px;
     font-size: var(--p-font);
     font-weight: 700;
     background: var(--main-color);
     color: var(--bg-color);
-    border-radius: 30px;
+    border-radius: 20px;
     transition: all .40s ease;
 }
 .btn:hover{
@@ -418,9 +421,34 @@ header.sticky{
         gap: 1rem;;
         
     }
+    .sec {
+        top: 40px;
+        padding: 80px 7%;
+    }
 }
 @media (max-width:600px){
     .home{
         height: 120vh;
     }
+    .sec {
+        top: 40px;
+        padding: 80px 7%;
+    }
+}
+
+/* About page css */
+.about-top :is(h2,h3){
+    margin-top: 10px;
+    color: var(--second-color);
+    text-align: center;
+}
+.categories-content{
+    padding: 50px 4%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px, auto));
+    gap: 1px;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 4rem;
 }
