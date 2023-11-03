@@ -45,6 +45,15 @@ else if(login=="false"){
     profilePhoto.src = 'images/profile.png';
 }
 
+// Javascript of gome page
+
+function C(){
+    window.location.href="C-course.html";
+}
+function python(){
+    window.location.href="Python-course.html";
+}
+
 // JavaScript of My Course Page
 
 let Show_More=0;
@@ -78,6 +87,7 @@ function ShowMore(){
         }
         else if (j==1){
             courseImage.src = 'images/python.png';
+            courseRow.setAttribute("onclick", "python()");
             courseImage.alt = '';
             coursePrice.textContent = '$20.00';
             courseTitle.textContent = 'The Python-Basics Course';
